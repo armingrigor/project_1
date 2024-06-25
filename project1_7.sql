@@ -1,9 +1,8 @@
 SELECT 
-	product_category,
-	quantity,
-	price_per_unit,
-	total_amount
+    quantity,
+    product_category,
+    SUM(price_per_unit) AS sum_price_per_unit,
+    AVG(price_per_unit) AS avg_price_per_unit
 FROM project_1
-	--WHERE quantity = 1
-GROUP BY product_category,quantity,price_per_unit,total_amount
-ORDER BY product_category, price_per_unit DESC
+GROUP BY quantity, product_category
+ORDER BY quantity DESC;  
